@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html manifest="cms.appcache" ng-app="cms">
+    <head>
+        <title>ARDS Web Portal</title>
+
+        <meta name="description" content="DHIS 2">
+        <meta name="keywords" content="DHIS 2">        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<!-- DHIS2 Settings initialization for a baseUrl that is used for the menu -->
+		<script type="text/javascript">
+			window.dhis2 = window.dhis2 || {};
+			dhis2.settings = dhis2.settings || {};
+			dhis2.settings.baseUrl = '../..';
+		</script>
+        <script type="text/javascript" src="../../../dhis-web-commons/javascripts/jQuery/jquery.min.js"></script>
+        <script type="text/javascript" src="../../../dhis-web-commons/javascripts/jQuery/ui/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="../../../dhis-web-commons/javascripts/jQuery/jquery.plugin.min.js"></script>
+
+        <script type="text/javascript" src="scripts/vendor/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="scripts/vendor/bower_components/highcharts/js/highcharts.js"></script>
+
+        <script type="text/javascript" src="../../../dhis-web-commons/bootstrap/js/bootstrap.min.js"></script>     
+        <link type="text/css" rel="stylesheet"  href="../../../dhis-web-commons/bootstrap/css/bootstrap.min.css">      
+
+        <script type="text/javascript" src="../../../dhis-web-commons/javascripts/angular/angular.js"></script>
+        <script type="text/javascript" src="../../../dhis-web-commons/javascripts/angular/angular-resource.js"></script>
+        <script type="text/javascript" src="../../../dhis-web-commons/javascripts/angular/angular-route.js"></script>
+        <script type="text/javascript" src="../../../dhis-web-commons/javascripts/angular/angular-cookies.js"></script>
+        <script type="text/javascript" src="../../../dhis-web-commons/javascripts/angular/angular-sanitize.js"></script>
+        <script type="text/javascript" src="../../../dhis-web-commons/javascripts/angular/angular-animate.js"></script>  
+        <script type="text/javascript" src="../../../dhis-web-commons/javascripts/angular/ui-bootstrap.js"></script>
+        <script type="text/javascript" src="../../../dhis-web-commons/javascripts/dhis2/dhis2.util.js"></script>
+        <script type="text/javascript" src="../../../dhis-web-commons/javascripts/commons.js"></script>
+
+        <script type="text/javascript" src="scripts/vendor/bower_components/angular-datatables/dist/angular-datatables.min.js"></script>
+
+        <script type="text/javascript" src="scripts/vendor/bower_components/highcharts-ng/highcharts-ng.min.js"></script>
+
+        <script type="text/javascript" src="../../../dhis-web-commons/javascripts/angular/plugins/angularLocalStorage.js"></script>
+        <script type="text/javascript" src="../../../dhis-web-commons/javascripts/angular/plugins/angular-translate.min.js"></script>
+        <script type="text/javascript" src="../../../dhis-web-commons/javascripts/dhis2/dhis2.angular.services.js"></script>
+        <script type="text/javascript" src="../../../dhis-web-commons/javascripts/dhis2/dhis2.angular.controllers.js"></script>
+
+        <script type="text/javascript" src="scripts/app.js"></script>        
+        <script type="text/javascript" src="scripts/services.js"></script>
+        <script type="text/javascript" src="scripts/directives.js"></script>
+        <script type="text/javascript" src="scripts/controllers.js"></script>
+        <script type="text/javascript" src="scripts/filters.js"></script>
+        <script type="text/javascript" src="scripts/vendor/multiselect/isteven-multi-select.js"></script>
+        <script type="text/javascript" src="scripts/vendor/bower_components/angular-ckeditor/angular-ckeditor.min.js"></script>
+
+        <!-- Menu scripts -->
+        <script type="text/javascript" src="../../../dhis-web-commons/javascripts/dhis2/dhis2.translate.js"></script>
+        <script type="text/javascript" src="../../../dhis-web-commons/javascripts/dhis2/dhis2.menu.js"></script>
+        <script type="text/javascript" src="../../../dhis-web-commons/javascripts/dhis2/dhis2.menu.ui.js"></script>
+
+
+        <script type="text/javascript" src="scripts/vendor/bower_components/ckeditor/ckeditor.js"></script>
+
+        <link type="text/css" rel="stylesheet" href="../../../dhis-web-commons/font-awesome/css/font-awesome.min.css"/>
+        <link type="text/css" rel="stylesheet" media="screen" href="../../../dhis-web-commons/css/widgets.css"/>
+        <link type="text/css" rel="stylesheet" media="screen" href="../../../dhis-web-commons/css/menu.css">
+        <link type="text/css" rel="stylesheet" media="screen" href="styles/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" media="screen" href="styles/tabstyle.css">
+        <link type="text/css" rel="stylesheet" media="screen" href="scripts/vendor/bower_components/ckeditor/skins/moono/editor.css">
+        <link type="text/css" rel="stylesheet" media="screen" href="scripts/vendor/bower_components/ckeditor/skins/moono/editor_gecko.css">
+        <link type="text/css" rel="stylesheet" media="screen" href="scripts/vendor/multiselect/isteven-multi-select.css">
+        <link type="text/css" rel="stylesheet" media="screen" href="scripts/vendor/bower_components/angular-datatables/dist/css/angular-datatables.min.css">
+        <link type="text/css" rel="stylesheet" media="screen" href="scripts/vendor/bower_components/datatables/media/css/dataTables.bootstrap.css">
+
+        <link type="text/css" rel="stylesheet" href="styles/style.css">
+        
+    </head>
+
+    <body>
+    <d2-header-bar></d2-header-bar>
+    <div style="padding-left:10px;padding-top:60px;" ng-controller="MainController">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="{{leftColumn}}" style="{{display}}">
+                    <ng-include src="leftTemplates"></ng-include>
+                </div>
+                <div class="{{centerColumn}}">
+                    <div class="row" ng-if="centerTemplates">
+                        <!--<div class="col-md-1" style="max-width:0px!important;padding-left:10px!important;">-->
+                            <!--<a style="cursor: pointer;color:#666666!important;" ng-show="!hideLeft" ng-click="toggleLeftSideMenu()"><i class="fa fa-arrow-left "></i></a>-->
+                            <!--<a style="cursor: pointer;color:#666666!important;" ng-show="hideLeft" ng-click="toggleLeftSideMenu()"><i class="fa fa-arrow-right "></i></a>-->
+                        <!--</div>-->
+                        <div class="col-md-11 col-sm-12">
+                            <div class="row" >
+                                <div id="page_switcher">
+                                    <div class="onoffswitch pull-right">
+                                        <input type="checkbox" class="toggleBtn onoffswitch-checkbox" checked="" id="onoffswitch6" ng-click="toggleCMSHOMEPages()">
+                                        <label for="onoffswitch6" class="onoffswitch-label">
+                                            <div class="onoffswitch-inner" style=""></div>
+                                            <div class="onoffswitch-switch" style="">
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!--<ng-include src="centerTemplates"></ng-include>-->
+                            <div ng-view></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-2 col-xs-12">
+                    <ng-include src="rightTemplates"></ng-include>
+                </div>
+            </div>
+        </div>
+		<!--<div ng-view></div>-->
+	</div>
+</body>
+</html>
